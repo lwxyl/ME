@@ -1,8 +1,7 @@
-[TOC]
-
 # 简介
-无屏幕，无网线，串口玩树莓派
+无屏幕，无网线，串口玩树莓派  
 
+[TOC]  
 <link rel="stylesheet" href="http://yandex.st/highlightjs/6.2/styles/googlecode.min.css">
  
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
