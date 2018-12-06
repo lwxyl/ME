@@ -1,3 +1,5 @@
+[TOC]
+
 # 简介
 无屏幕，无网线，串口玩树莓派
 
@@ -9,15 +11,16 @@
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
  $(document).ready(function(){
-      $("h2,h3,h4,h5,h6").each(function(i,item){
+      $("h1,h2,h3,h4,h5,h6").each(function(i,item){
         var tag = $(item).get(0).localName;
         $(item).attr("id","wow"+i);
         $("#category").append('<a class="new'+tag+'" href="#wow'+i+'">'+$(this).text()+'</a></br>');
-        $(".newh2").css("margin-left",0);
-        $(".newh3").css("margin-left",20);
-        $(".newh4").css("margin-left",40);
-        $(".newh5").css("margin-left",60);
-        $(".newh6").css("margin-left",80);
+        $(".newh1").css("margin-left",0);
+        $(".newh2").css("margin-left",20);
+        $(".newh3").css("margin-left",40);
+        $(".newh4").css("margin-left",60);
+        $(".newh5").css("margin-left",80);
+        $(".newh6").css("margin-left",100);
       });
  });
 </script>
