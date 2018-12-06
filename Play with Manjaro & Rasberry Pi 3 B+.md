@@ -70,7 +70,7 @@ nano  /usr/local/sbin/ledoff
 chmod +x  /usr/local/sbin/ledoff  
 ledoff  
 ### 开机自动熄灭
-nano /usr/lib/systemd/system/rc-local.service
+nano /usr/lib/systemd/system/rc-local.service  
 
     [Unit]
     Description=/etc/rc.local Compatibility
@@ -85,7 +85,7 @@ nano /usr/lib/systemd/system/rc-local.service
     [Install]
     WantedBy=multi-user.target
 
-nano /etc/rc.local
+nano /etc/rc.local  
 
     #!/bin/bash
     #
@@ -102,8 +102,8 @@ nano /etc/rc.local
 
     exit 0
 
-chmod +x /etc/rc.local
-systemctl enable rc-local.service
+chmod +x /etc/rc.local  
+systemctl enable rc-local.service  
 
 ---
 
@@ -120,7 +120,7 @@ ledon
 
 ## 连接WiFi，并配置静态IP
 >参考：https://wiki.archlinux.org/index.php/Systemd-networkd  
-不得不用[**火星WiFi**](http://zkytech.com/)，否则辣鸡校网会强制掉线
+不得不用[**火星WiFi**](http://zkytech.com/)，否则辣鸡校网会强制掉线  
 ### 生成密文密码
 wpa_passphrase  2333 "123456789" > /etc/wpa_supplicant/wpa_supplicant-wlan0.conf  
 ### 删除明文密码 #psk="123456789"
@@ -132,7 +132,7 @@ nano  /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
     }
 
 ### 配置静态IP
-nano /etc/systemd/network/25-wireless.network
+nano /etc/systemd/network/25-wireless.network  
 
     [Match]
     Name=wlan0
@@ -147,7 +147,7 @@ systemctl enable systemd-networkd.service
 reboot  
 ### 检查连接
 ip a  
-ping baidu.com
+ping baidu.com  
 
 ---
 
@@ -191,20 +191,20 @@ nano /etc/pacman.d/mirrorlist
     Server = http://mirrors.ustc.edu.cn/archlinuxarm/$arch/$repo
     Server = http://mirrors.ustc.edu.cn/archlinuxcn/$arch/$repo
 
-pacman -Syy
+pacman -Syy  
 ### 使用aria2多线程下载 加速pacman
 pacman -S [aria2](https://wiki.archlinux.org/index.php/Aria2)  
-nano /etc/pacman.conf
-> 將下面一行加在 [options] 段下
+nano /etc/pacman.conf  
+> 將下面一行加在 [options] 段下  
 
     XferCommand = /usr/bin/aria2c --allow-overwrite=true --continue=true --file-allocation=none --log-level=error --max-tries=2 --max-connection-per-server=2 --max-file-not-found=5 --min-split-size=5M --no-conf --remote-time=true --summary-interval=60 --timeout=5 --dir=/ --out %o %u
 
-grep aria2c /etc/pacman.conf
+grep aria2c /etc/pacman.conf  
 ![aria2](resource/aria2.png "aria2")
 ### 更新系统
 pacman -Syu  
 ### 添加常用软件
-pacman -S  [wget](https://wiki.archlinux.org/index.php/Wget) [git](https://wiki.archlinux.org/index.php/Git_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) [npm](https://wiki.archlinux.org/index.php/Node.js) [gcc](https://wiki.archlinux.org/index.php/GNU_Compiler_Collection) [yaourt](https://wiki.archlinux.org/index.php/AUR_helpers_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))  [net-tools](https://wiki.archlinux.org/index.php/Network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+pacman -S  [wget](https://wiki.archlinux.org/index.php/Wget) [git](https://wiki.archlinux.org/index.php/Git_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) [npm](https://wiki.archlinux.org/index.php/Node.js) [gcc](https://wiki.archlinux.org/index.php/GNU_Compiler_Collection) [yaourt](https://wiki.archlinux.org/index.php/AUR_helpers_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))  [net-tools](https://wiki.archlinux.org/index.php/Network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))  
 
 ---
 
@@ -218,13 +218,13 @@ nano /etc/ssh/sshd_config
 systemctl restart sshd  
 
 ### 修改root密码
-passwd root
+passwd root  
 ### 修改普通用户用户名
->usermod  -l  新用户名  -d  /home/新用户名  -m  老用户名
+>usermod  -l  新用户名  -d  /home/新用户名  -m  老用户名  
 
-usermod  -l bugwriter  -d  /home/bugwriter  -m  manjaro
+usermod  -l bugwriter  -d  /home/bugwriter  -m  manjaro  
 ### 修改普通用户密码
-passwd bugwriter
+passwd bugwriter  
 ### WinSCP配置如图
 ![WinSCP](resource/WinSCP.png "WinSCP")
 
@@ -232,9 +232,9 @@ passwd bugwriter
 
 ## [node-red](https://github.com/node-red/node-red)
 sudo npm install -g --unsafe-perm node-red  
-node-red
+node-red  
 ### 查看控制台
-http://192.168.191.101:1880 
+http://192.168.191.101:1880  
 ### 添加启动项  
 wget https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/nodered.service -O /lib/systemd/system/nodered.service  
 
@@ -253,9 +253,9 @@ systemctl daemon-reload
 systemctl enable nodered.service  
 systemctl list-unit-files | grep node  
 ![nodered](resource/nodered.png "nodered")
-reboot
+reboot  
 ### 查看控制台
-http://192.168.191.101:1880 
+http://192.168.191.101:1880  
 
 ---
 
@@ -301,7 +301,7 @@ sys-clone sda -f
 ---
 
 ## 备份系统
->参考：https://github.com/bup/bup
+>参考：https://github.com/bup/bup  
 
 
 ---
