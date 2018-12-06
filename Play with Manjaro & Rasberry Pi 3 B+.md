@@ -11,7 +11,7 @@
 ---
 
 ## 下载[Etcher](https://www.balena.io/etcher/)镜像烧录工具
-![Etcher](resource\Etcher.png "Etcher")
+![Etcher](resource/Etcher.png "Etcher")
 
 ---
 
@@ -25,11 +25,11 @@
 **Pin15**(RXD)(外侧右数5) <---> **TXD**  
 **GND**(Pin15对面)(内侧侧右数5) <---> **GND**  
 
-![raspberry-pi-pinout](resource\raspberry-pi-pinout.png "raspberry-pi-pinout")
+![raspberry-pi-pinout](resource/raspberry-pi-pinout.png "raspberry-pi-pinout")
 ### 查看COM号  
-![COMnumber](resource\COMnumber.png "COMnumber")
+![COMnumber](resource/COMnumber.png "COMnumber")
 ### 配置[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)  
-![PuTTYConfiguration](resource\PuTTYConfiguration.png "PuTTYConfiguration")
+![PuTTYConfiguration](resource/PuTTYConfiguration.png "PuTTYConfiguration")
 ### 点击**Open**，然后接通树莓派电源，第一次启动会自动调整分区大小然后重启，耐心等待启动信息蹦完
 ### 使用用户名：**root**，密码：**root** (不显示) 登录
 
@@ -147,7 +147,7 @@ timedatectl
 
 systemctl enable openntpd.service  
 systemctl list-unit-files --state=enabled  | grep openntpd  
-![openntpd](resource\openntpd.png "openntpd")
+![openntpd](resource/openntpd.png "openntpd")
 
 ---
 
@@ -176,7 +176,7 @@ nano /etc/pacman.conf
     XferCommand = /usr/bin/aria2c --allow-overwrite=true --continue=true --file-allocation=none --log-level=error --max-tries=2 --max-connection-per-server=2 --max-file-not-found=5 --min-split-size=5M --no-conf --remote-time=true --summary-interval=60 --timeout=5 --dir=/ --out %o %u
 
 grep aria2c /etc/pacman.conf
-![aria2](resource\aria2.png "aria2")
+![aria2](resource/aria2.png "aria2")
 ### 更新系统
 pacman -Syu  
 ### 添加常用软件
@@ -202,7 +202,7 @@ usermod  -l bugwriter  -d  /home/bugwriter  -m  manjaro
 ### 修改普通用户密码
 passwd bugwriter
 ### WinSCP配置如图
-![WinSCP](resource\WinSCP.png "WinSCP")
+![WinSCP](resource/WinSCP.png "WinSCP")
 
 ---
 
@@ -228,7 +228,7 @@ nano /lib/systemd/system/nodered.service
 systemctl daemon-reload  
 systemctl enable nodered.service  
 systemctl list-unit-files | grep node  
-![nodered](resource\nodered.png "nodered")
+![nodered](resource/nodered.png "nodered")
 reboot
 ### 查看控制台
 http://192.168.191.101:1880 
@@ -254,8 +254,8 @@ su bugwriter
 vncserver  
 ### 设置连接密码，如：1233321   (不显示)  
 ### 使用[**VNC Viewer**](https://www.realvnc.com/en/connect/download/viewer/)连接效果  
-![VNCViewer](resource\VNCViewer.png "VNCViewer")
-![VNCViewerRename](resource\VNCViewerRename.png "VNCViewerRename")
+![VNCViewer](resource/VNCViewer.png "VNCViewer")
+![VNCViewerRename](resource/VNCViewerRename.png "VNCViewerRename")
 ### 关闭vnc  
 vncserver -kill :1  
 
